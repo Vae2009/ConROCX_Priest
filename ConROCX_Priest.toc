@@ -1,0 +1,11 @@
+## Title:-|cffFFFFFFConROCX|r- |cffFFFFFFPriest|r
+## Version: 2.0.2
+## Author: Vae, 2.0.2 updated by Lith
+## Interface: 30403
+## SavedVariablesPerCharacter: ConROCPriestSpells
+## Dependencies: ConROCX
+## LoadOnDemand: 1
+
+priest_ids.lua
+priest_spellmenu.lua
+priest.lua

@@ -1,8 +1,10 @@
 local ConROC_Priest, ids = ...;
+local ConROC_Priest, optionMaxIds = ...;
 
 --General
 	ids.Racial = {
-
+		Berserking = 26297,
+		Perception = 20600,
 	}
 	ids.Spec = {
 		Discipline = 1,
@@ -20,27 +22,31 @@ local ConROC_Priest, ids = ...;
 		DivineSpiritRank2 = 14818,
 		DivineSpiritRank3 = 14819,
 		DivineSpiritRank4 = 27841,
+		DivineSpiritRank5 = 25312,
+		DivineSpiritRank6 = 48073, -- new
+		FearWard = 6346, -- new
 		InnerFireRank1 = 588,
 		InnerFireRank2 = 7128,
 		InnerFireRank3 = 602,
 		InnerFireRank4 = 1006,
 		InnerFireRank5 = 10951,
 		InnerFireRank6 = 10952,
+		InnerFireRank7 = 25431,
+		InnerFireRank8 = 48040, --new
+		InnerFireRank9 = 48168,
 		InnerFocus = 14751,
 		Levitate = 1706,
-		ManaBurnRank1 = 8129,
-		ManaBurnRank2 = 8131,
-		ManaBurnRank3 = 10874,
-		ManaBurnRank4 = 10875,
-		ManaBurnRank5 = 10876,
+		ManaBurn = 8129,
+		MassDispel = 32375, --new
 		PowerInfusion = 10060,
-		PrayerofSpiritRank1 = 27681,
 		PowerWordFortitudeRank1 = 1243,
 		PowerWordFortitudeRank2 = 1244,
 		PowerWordFortitudeRank3 = 1245,
 		PowerWordFortitudeRank4 = 2791,
 		PowerWordFortitudeRank5 = 10937,
 		PowerWordFortitudeRank6 = 10938,
+		PowerWordFortitudeRank7 = 25389,
+		PowerWordFortitudeRank8 = 48161, --new
 		PowerWordShieldRank1 = 17,
 		PowerWordShieldRank2 = 592,
 		PowerWordShieldRank3 = 600,
@@ -51,45 +57,32 @@ local ConROC_Priest, ids = ...;
 		PowerWordShieldRank8 = 10899,
 		PowerWordShieldRank9 = 10900,
 		PowerWordShieldRank10 = 10901,
+		PowerWordShieldRank11 = 25217,
+		PowerWordShieldRank12 = 25218,
+		PowerWordShieldRank13 = 48065, --new
+		PowerWordShieldRank14 = 48066,
+		PrayerofFortitudeRank1 = 21562, --new
+		PrayerofFortitudeRank2 = 21564,
+		PrayerofFortitudeRank3 = 25392,
+		PrayerofFortitudeRank4 = 48162,
+		PrayerofSpiritRank1 = 27681,
+		PrayerofSpiritRank2 = 32999,
+		PrayerofSpiritRank3 = 48074, --new
 		ShackleUndeadRank1 = 9484,
 		ShackleUndeadRank2 = 9485,
 		ShackleUndeadRank3 = 10955,
 	}
-	ids.Disc_Talent = {
-		UnbreakableWill = 1,
-		WandSpecialization = 2,
-		 
-		SilentResolve = 3,
-		ImprovedPowerWordFortitude = 4,
-		ImprovedPowerWordShield = 5,
-
-		Martyrdom = 6,
-		 
-		InnerFocus = 7,
-		Meditation = 8,
-		 
-		ImprovedInnerFocus = 9,
-		MentalAgility = 10,
-		ImprovedManaBurn = 11,
-		 
-		MentalStrength = 12,
-		DivineSpirit = 13,
-		 
-		ForceofWill = 14,
-		 
-		PowerInfusion = 15,
-	}	
+		
 --Holy
 	ids.Holy_Ability = {
 		AbolishDisease = 552,
+		BindingHealRank1 = 32546, --new
+		BindingHealRank2 = 48119,
+		BindingHealRank3 = 48120,
+		BlessedHealing = 70772, --new
 		CureDisease = 528,
-		DesperatePrayerRank1 = 13908,
-		DesperatePrayerRank2 = 19236,
-		DesperatePrayerRank3 = 19238,
-		DesperatePrayerRank4 = 19240,
-		DesperatePrayerRank5 = 19241,
-		DesperatePrayerRank6 = 19242,
-		DesperatePrayerRank7 = 19243,
+		DivineHymn = 64843, --new
+		EmpoweredRenew = 63544, --new
 		FlashHealRank1 = 2061,
 		FlashHealRank2 = 9472,
 		FlashHealRank3 = 9473,
@@ -97,10 +90,19 @@ local ConROC_Priest, ids = ...;
 		FlashHealRank5 = 10915,
 		FlashHealRank6 = 10916,
 		FlashHealRank7 = 10917,
+		FlashHealRank8 = 25233,
+		FlashHealRank9 = 25235,
+		FlashHealRank10 = 48070, --new
+		FlashHealRank11 = 48071,
 		GreaterHealRank1 = 2060,
 		GreaterHealRank2 = 10963,
 		GreaterHealRank3 = 10964,
 		GreaterHealRank4 = 10965,
+		GreaterHealRank5 = 25314,
+		GreaterHealRank6 = 25210,
+		GreaterHealRank7 = 25213,
+		GreaterHealRank8 = 48062, --new
+		GreaterHealRank9 = 48063,
 		HealRank1 = 2054,
 		HealRank2 = 2055,
 		HealRank3 = 6063,
@@ -113,22 +115,38 @@ local ConROC_Priest, ids = ...;
 		HolyFireRank6 = 15266,
 		HolyFireRank7 = 15267,
 		HolyFireRank8 = 15261,
+		HolyFireRank9 = 25384,
+		HolyFireRank10 = 48134, --new
+		HolyFireRank11 = 48135,
 		HolyNovaRank1 = 15237,
 		HolyNovaRank2 = 15430,
 		HolyNovaRank3 = 15431,
 		HolyNovaRank4 = 27799,
 		HolyNovaRank5 = 27800,
 		HolyNovaRank6 = 27801,
+		HolyNovaRank7 = 25331,
+		HolyNovaRank8 = 48077, --new
+		HolyNovaRank9 = 48078,
+		HymnofHope = 64901, --new
 		LesserHealRank1 = 2050,
 		LesserHealRank2 = 2052,
 		LesserHealRank3 = 2053,		
 		LightwellRank1 = 724,
 		LightwellRank2 = 27870,
 		LightwellRank3 = 27871,
+		LightwellRank4 = 28275,
+		LightwellRank5 = 48086, --new
+		LightwellRank6 = 48087,
 		PrayerofHealingRank1 = 596,
 		PrayerofHealingRank2 = 996,
 		PrayerofHealingRank3 = 10960,
 		PrayerofHealingRank4 = 10961,
+		PrayerofHealingRank5 = 25316,
+		PrayerofHealingRank6 = 25308,
+		PrayerofHealingRank7 = 48072, --new
+		PrayerofMendingRank1 = 33076, --new
+		PrayerofMendingRank2 = 48112,
+		PrayerofMendingRank3 = 48113,
 		RenewRank1 = 139,
 		RenewRank2 = 6074,
 		RenewRank3 = 6075,
@@ -138,11 +156,18 @@ local ConROC_Priest, ids = ...;
 		RenewRank7 = 10927,
 		RenewRank8 = 10928,
 		RenewRank9 = 10929,
+		RenewRank10 = 25315,
+		RenewRank11 = 25221,
+		RenewRank12 = 25222,
+		RenewRank13 = 48067, --new
+		RenewRank14 = 48068,
 		ResurrectionRank1 = 2006,
 		ResurrectionRank2 = 2010,
 		ResurrectionRank3 = 10880,
 		ResurrectionRank4 = 10881,
 		ResurrectionRank5 = 20770,
+		ResurrectionRank6 = 25435,
+		ResurrectionRank7 = 48171, --new
 		SmiteRank1 = 585,
 		SmiteRank2 = 591,
 		SmiteRank3 = 598,
@@ -151,45 +176,24 @@ local ConROC_Priest, ids = ...;
 		SmiteRank6 = 6060,
 		SmiteRank7 = 10933,
 		SmiteRank8 = 10934,
+		SmiteRank9 = 25363,
+		SmiteRank10 = 25364,
+		SmiteRank11 = 48122, --new
+		SmiteRank12 = 48123,
 	}
-	ids.Holy_Talent = {
-		HealingFocus = 1,
-		ImprovedRenew = 2,
-		HolySpecialization = 3,
-		 
-		SpellWarding = 4,
-		DivineFury = 5,
-		 
-		HolyNova = 6,
-		BlessedRecovery = 7,
-		Inspiration = 8,
-		 
-		HolyReach = 9,
-		ImprovedHealing = 10,
-		SearingLight = 11,
-		 
-		ImprovedPrayerofHealing = 12,
-		SpiritofRedemption = 13,
-		SpiritualGuidance = 14,
-		 
-		SpiritualHealing = 15,
-		 
-		Lightwell = 16,
-	}
+	
 --Shadow
 	ids.Shad_Ability = {
-		FadeRank1 = 586,
-		FadeRank2 = 9578,
-		FadeRank3 = 9579,
-		FadeRank4 = 9592,
-		FadeRank5 = 10941,
-		FadeRank6 = 10942,
-		HexofWeaknessRank1 = 9035,
-		HexofWeaknessRank2 = 19281,
-		HexofWeaknessRank3 = 19282,
-		HexofWeaknessRank4 = 19283,
-		HexofWeaknessRank5 = 19284,
-		HexofWeaknessRank6 = 19285,
+		DevouringPlagueRank1 = 2944, --new
+		DevouringPlagueRank2 = 19276,
+		DevouringPlagueRank3 = 19277,
+		DevouringPlagueRank4 = 19278,
+		DevouringPlagueRank5 = 19279,
+		DevouringPlagueRank6 = 19280,
+		DevouringPlagueRank7 = 25467,
+		DevouringPlagueRank8 = 48299,
+		DevouringPlagueRank9 = 48300,
+		Fade = 586,
 		MindBlastRank1 = 8092,
 		MindBlastRank2 = 8102,
 		MindBlastRank3 = 8103,
@@ -199,20 +203,28 @@ local ConROC_Priest, ids = ...;
 		MindBlastRank7 = 10945,
 		MindBlastRank8 = 10946,
 		MindBlastRank9 = 10947,
-		MindControlRank1 = 605,
-		MindControlRank2 = 10911,
-		MindControlRank3 = 10912,
+		MindBlastRank10 = 25372,
+		MindBlastRank11 = 25375,
+		MindBlastRank12 = 48126, --new
+		MindBlastRank13 = 48127,
+		MindControl = 605,
 		MindFlayRank1 = 15407,
 		MindFlayRank2 = 17311,
 		MindFlayRank3 = 17312,
 		MindFlayRank4 = 17313,
 		MindFlayRank5 = 17314,
 		MindFlayRank6 = 18807,
-		MindSootheRank1 = 453,
-		MindSootheRank2 = 8192,
-		MindSootheRank3 = 10953,
+		MindFlayRank7 = 25387,
+		MindFlayRank8 = 48155, --new
+		MindFlayRank9 = 48156,
+		MindSearRank1 = 48045, --new
+		MindSearRank2 = 53023,
+		MindSoothe = 453,
 		MindVisionRank1 = 2096,
 		MindVisionRank2 = 10909,
+		PrayerofShadowProtectionRank1 = 27683, --new
+		PrayerofShadowProtectionRank2 = 39374,
+		PrayerofShadowProtectionRank3 = 48170,
 		PsychicScreamRank1 = 8122,
 		PsychicScreamRank2 = 8124,
 		PsychicScreamRank3 = 10888,
@@ -220,6 +232,12 @@ local ConROC_Priest, ids = ...;
 		ShadowProtectionRank1 = 976,
 		ShadowProtectionRank2 = 10957,
 		ShadowProtectionRank3 = 10958,
+		ShadowProtectionRank4 = 25433,
+		ShadowProtectionRank5 = 48169, --new
+		ShadowWordDeathRank1 = 32379, --new
+		ShadowWordDeathRank2 = 32996,
+		ShadowWordDeathRank3 = 48157,
+		ShadowWordDeathRank4 = 48158,
 		ShadowWordPainRank1 = 589,
 		ShadowWordPainRank2 = 594,
 		ShadowWordPainRank3 = 970,
@@ -228,52 +246,35 @@ local ConROC_Priest, ids = ...;
 		ShadowWordPainRank6 = 10892,
 		ShadowWordPainRank7 = 10893,
 		ShadowWordPainRank8 = 10894,
-		TouchofWeaknessRank1 = 2652,
-		TouchofWeaknessRank2 = 19261,
-		TouchofWeaknessRank3 = 19262,
-		TouchofWeaknessRank4 = 19264,
-		TouchofWeaknessRank5 = 19265,
-		TouchofWeaknessRank6 = 19266,
+		ShadowWordPainRank9 = 25367,
+		ShadowWordPainRank10 = 25368,
+		ShadowWordPainRank11 = 48124, --new
+		ShadowWordPainRank12 = 48125,
+		Shadowfiend = 34433,
 		Shadowform = 15473,
 		Silence = 15487,
 		VampiricEmbrace = 15286,
+		VampiricTouchRank1 = 34914,
+		VampiricTouchRank2 = 34916,
+		VampiricTouchRank3 = 34917,
+		VampiricTouchRank4 = 48159,
+		VampiricTouchRank5 = 48160,
 	}
-	ids.Shad_Talent = {
-		SpiritTap = 1,
-		Blackout = 2,
-		 
-		ShadowAffinity = 3,
-		ImprovedShadowWordPain = 4,
-		ShadowFocus = 5,
-		 
-		ImprovedPsychicScream = 6,
-		ImprovedMindBlast = 7,
-		MindFlay = 8,
-		 
-		ImprovedFade = 9,
-		ShadowReach = 10,
-		ShadowWeaving = 11,
-		 
-		Silence = 12,
-		VampiricEmbrace = 13,
-		ImprovedVampiricEmbrace = 14,
-		 
-		Darkness = 15,
-		 
-		Shadowform = 16,
-	}
+
 -- Auras
 	ids.Player_Buff = {
-	
+		HymnofHope = 64904,
+		VampiricEmbrace = 15286,
+		ShadowWeavingRank1 = 15257,
+		ShadowWeavingRank2 = 15331,
+		ShadowWeavingRank3 = 15332,
 	}
 	ids.Player_Debuff = {
 		WeakendSoul = 6788,
 	}
 	ids.Target_Debuff = {
-		TouchofWeaknessRank1 = 2943,
-		TouchofWeaknessRank2 = 19249,
-		TouchofWeaknessRank3 = 19251,
-		TouchofWeaknessRank4 = 19252,
-		TouchofWeaknessRank5 = 19253,
-		TouchofWeaknessRank6 = 19254,	
+		HymnofHope = 64904,
+	}
+	ids.optionMaxIds = {
+		
 	}
