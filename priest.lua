@@ -12,7 +12,7 @@ ConROC.Priest = {};
 local ConROC_Priest, ids = ...;
 local ConROC_Priest, optionMaxIds = ...;
 local currentSpecName
-
+local newTarget = true;
 function ConROC:EnableDefenseModule()
 	self.NextDef = ConROC.Priest.Defense;
 end
@@ -416,11 +416,15 @@ function ConROC:EnableRotationModule()
 	self.Description = "Priest";
 	self.NextSpell = ConROC.Priest.Damage;
 
+	self:RegisterEvent('PLAYER_TARGET_CHANGED');
 	self:RegisterEvent('UNIT_SPELLCAST_SUCCEEDED');
 	self:RegisterEvent("PLAYER_TALENT_UPDATE");
 	self.lastSpellId = 0;
 	
 	ConROC:SpellmenuClass();
+end
+function ConROC:PLAYER_TARGET_CHANGED()
+	newTarget = true;
 end
 function ConROC:PLAYER_TALENT_UPDATE()
 	ConROC:SpecUpdate();
@@ -500,6 +504,11 @@ ConROC:UpdateSpellID()
 
 --Rotations
 	if plvl < 10 then
+
+		if smiteRDY and ((ConROC.lastSpellId ~= _Smite or not incombat) or (incombat and swpDebuff)) then
+			return _Smite;
+		end
+
 		if ConROC:CheckBox(ConROC_SM_Debuff_ShadowWordPain) and swpRDY and not swpDebuff then
 			return _ShadowWordPain;
 		end
